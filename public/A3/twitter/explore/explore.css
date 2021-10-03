@@ -1,0 +1,113 @@
+body {
+  background-color: black;
+  margin-left: 16px;
+  border-left: solid;
+}
+
+#search-bar {
+  background-color: rgba(27,27,27,0.85);
+  border: none;
+  border-radius: 50px;
+  padding: 5px 20px;
+  width: 100%;
+  margin-right: 12px;
+}
+
+#search-bar::placeholder {
+  color: rgb(110, 118, 125);
+}
+
+.wd-gear {
+  background-color: transparent;
+  border: none;
+  color: rgb(29,161,242);
+  font-size: larger;
+  cursor: pointer;
+}
+
+.wd-gear:hover {
+  color: white;
+}
+
+.wd-row {
+  display: flex;
+}
+
+.wd-row-even {
+  justify-content: space-between;
+}
+
+a {
+  color: darkgray;
+  cursor: pointer;
+  padding: 16px;
+  font-size: 15px;
+  color: rgb(110, 118, 125);
+}
+
+.wd-a-highlight {
+  color: rgb(29,161,242);
+  border-bottom: solid;
+}
+
+.wd-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.wd-top-border {
+  border-top-style: inset;
+  border-top-width: 10px;
+  border-top-color: grey;
+}
+
+.wd-post {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  border-top: solid;
+  border-color: rgba(27,27,27,0.85);
+  border-width: 1px;
+  border-bottom: solid;
+}
+
+.wd-topic {
+  color: rgb(110, 118, 125);
+  font-size: 13px;
+}
+
+.wd-post-title {
+  font-size: 18px;
+  color: beige;
+  font-weight: 500;
+}
+
+.wd-tweets {
+  color: rgb(110, 118, 125);
+  font-size: 13px;
+}
+
+.wd-post > div {
+  margin-top: 4px;
+}
+
+.wd-post-author {
+  color: beige;
+  font-size: 13px;
+}
+
+.wd-post-time {
+  color: rgb(110, 118, 125);
+}
+
+.wd-post-with-image {
+  min-height: 100px;
+}
+
+.wd-post-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  position: fixed;
+  right: 16px;
+}
