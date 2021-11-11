@@ -18,6 +18,14 @@ function App() {
           <Route path="/a6/build" exact={true}>
             <Build/>
           </Route>
+          <Route path={["/", "/a7", "/a7/practice"]} exact={true}>
+            <Practice/>
+          </Route>
+          <Route path="/a7/twitter">
+            <Build/>
+          </Route>
+
+
         </div>
       </BrowserRouter>
   );
