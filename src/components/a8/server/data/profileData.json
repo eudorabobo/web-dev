@@ -1,0 +1,14 @@
+{
+  "firstName": "Yaqian",
+  "lastName": "Liu",
+  "handle": "Eudora liu",
+  "profilePicture": "/images/eudora.png",
+  "bannerPicture": "/images/banner.jpeg",
+  "bio": "Student, Future Software Engineer",
+  "website": "youtube.com",
+  "location": "Seattle, WA",
+  "dateOfBirth": "1126",
+  "dateJoined": "09/2020",
+  "followingCount": 110,
+  "followersCount": 100
+}

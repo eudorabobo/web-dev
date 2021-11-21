@@ -1,0 +1,48 @@
+
+.profile-avatar {
+    border-radius: 50%;
+    width: 195px;
+    height: 195px;
+    object-fit:contain;
+    position: relative;
+    top: -2cm;
+    border: 3px solid black !important;
+}
+.profile-banner {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+    max-height: 300px;
+}
+.profile-firstname-lastname {
+    position: relative;
+    top: -2cm;
+    font-size: 22pt;
+}
+.profile-handle {
+    position: relative;
+    top: -2cm;
+    font-size: 12pt;
+    color: gray;
+}
+button.rounded-pill.profile-edit-button {
+    background-color: black;
+    font-size: 15pt;
+    float: right;
+    border: 1px solid #afafaf!important;
+}
+.edit-profile-margin-right {
+    margin-right: 0.6cm;
+}
+.edit-profile-save-button {
+    background-color: #d2dadc;
+    color: black;
+}
+.edit-profile-form {
+    background-color: black;
+    border: 1px solid #afafaf!important;
+    color: #afafaf;
+}

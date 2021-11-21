@@ -1,0 +1,22 @@
+const model = require('./tweet-model');
+
+const findAllTweets = () => model.find();
+const createTweet = (tweet) => model.create(tweet);
+const deleteTweet = (id) => model.deleteOne({_id: id});
+const updateTweet = (id, tweet) =>
+    model.updateOne({_id: id}, {$set: tweet});
+
+const likeTweet = (id) =>
+    model.updateOne({_id: id}, {$inc: {like: 1}})
+
+const dislikeTweet = (id) =>
+    model.updateOne({_id: id}, {$inc: {like: -1}})
+
+module.exports = {
+  findAllTweets,
+  createTweet,
+  deleteTweet,
+  updateTweet,
+  likeTweet,
+  dislikeTweet
+};
