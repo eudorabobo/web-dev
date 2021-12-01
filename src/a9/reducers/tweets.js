@@ -1,49 +1,72 @@
 import posts from './data/tweets.json';
-const posts = [];
+
 const tweets = (state = posts, action) => {
-  switch (action.type) {
-    case 'fetch-all-tweets':
-      console.log('fetched all tweets. all tweets: ', action.tweets);
-      return(
-          action.tweets.reverse()
-      );
-      break;
-    case 'create-tweet':
-      return ([
-            action.tweet,
-            ...state,
-          ]
-      );
-      break;
-    case 'delete-tweet':
-      console.log('entering delete-tweet',JSON.stringify(state));
-      return (
-          state.filter(post => post._id !== action.tweet._id)
-      )
-      break;
-    case 'like-tweet':
-      console.log('entering like-tweet',JSON.stringify(state));
-      console.log(action);
-      return (
-          state.map(post => {
-            if (post._id === action.newTweet._id) {
-              if (post.liked === true) {
-                post.liked = false;
-                post.like--;
-              } else {
-                post.liked = true;
-                post.like++;
-              }
-              return post;
-            } else {
-              return post;
-            }
-          })
-      );
-      break;
-    default:
-      return (state);
-  }
+    switch (action.type) {
+        case 'fetch-all-tweets':
+            // return({
+            //     tweets: action.tweets
+            // })
+            console.log(action.tweets)
+            return(action.tweets);
+            break;
+
+        case 'like-tweet':
+            return (
+                state.map(tweet => {
+                    if(tweet._id === action.tweet._id) {
+                        // if(tweet.liked === true) {
+                        //     tweet.liked = false;
+                        //     tweet.stats.likes--;
+                        // } else {
+                        //     tweet.liked = true;
+                        //     tweet.stats.likes++;
+                        // }
+                        return action.tweet;
+                    } else {
+                        return tweet;
+                    }
+                })
+            );
+            break;
+
+
+        case 'delete-tweet':
+            return (
+                state.filter(tweet => tweet._id !== action.tweet._id)
+            )
+        break;
+
+        case 'create-tweet':
+            // const tweet = {
+            //     _id: (new Date()).getTime() + '',
+            //     "topic": "Web Development",
+            //     "userName": "ReactJS",
+            //     "verified": false,
+            //     "handle": "ReactJS",
+            //     "time": "2h",
+            //     // copy attributes sent from dispatch
+            //     ...action.tweet,
+            //     "avatar-image": "/images/react-blue.png",
+            //     "logo-image": "/images/react-blue.png",
+            //     "stats": {
+            //         "comments": 123,
+            //         "retweets": 234,
+            //         "likes": 345
+            //     },
+            // };
+            return([
+                // {
+                //     ...tweet,
+                //     ...action.tweet
+                // },
+                action.tweet,
+                ...state
+            ]);
+            break;
+
+        default:
+            return(state);
+    }
 };
 
 export default tweets;

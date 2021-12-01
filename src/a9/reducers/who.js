@@ -1,14 +1,21 @@
 import whoJson from './data/who.json';
-const whoJson = [];
-const who = (state = whoJson, action) => {
-  switch (action.type) {
-    case 'fetch-all-whos':
-      return (
-          action.whos
-      );
-    default:
-      return (state);
-  }
 
-}
+
+// initialize the reducer's state
+// return the single static state
+// const who = (state = whoJson) => {
+//     return(state);
+// };
+
+const who = (state = whoJson, action) => {
+    switch (action.type) {
+        case 'fetch-all-who':
+            return(action.who);
+            break;
+
+        default:
+            return(state);
+    }
+};
+
 export default who;
