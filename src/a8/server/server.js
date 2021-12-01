@@ -21,13 +21,13 @@ app.use(function(req, res, next) {
 });
 
 
-require('../../../../../../../../../Downloads/server/services/movies-service')(app);
+require('../../../../../../../../Downloads/server/services/movies-service')(app);
 app.get('/hello', (req, res) => {
     res.send('Hello World!');
 });
 
-require('../../../../../../../../../Downloads/server/services/tweeter-service')(app);
-require('../../../../../../../../../Downloads/server/services/profile-service')(app);
-require('../../../../../../../../../Downloads/server/movies/service')(app);
+require('../../../../../../../../Downloads/server/services/tweeter-service')(app);
+require('../../../../../../../../Downloads/server/services/profile-service')(app);
+require('../../../../../../../../Downloads/server/movies/service')(app);
 
 app.listen(process.env.PORT || 4000);
