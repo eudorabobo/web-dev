@@ -1,0 +1,83 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+> use webdev
+switched to db webdev
+
+>  db.movies.insert({title: 'Aliens', rating: 4.5})
+WriteResult({ "nInserted" : 1 })
+
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+webdev  0.000GB
+
+> db.movies.insert({title: 'Terminator', rating: 4.8})
+WriteResult({ "nInserted" : 1 })
+
+> db.movies.insert({title: 'Avatar', rating: 4.7})
+WriteResult({ "nInserted" : 1 })
+> db.movies.insert({title: 'Dune', rating: 4.9})
+WriteResult({ "nInserted" : 1 })
+
+> db.movies.find()
+{ "_id" : ObjectId("61b6e1a1cde8e4ceb0b21530"), "title" : "Aliens", "rating" : 4.5 }
+{ "_id" : ObjectId("61b6e216cde8e4ceb0b21531"), "title" : "Terminator", "rating" : 4.8 }
+{ "_id" : ObjectId("61b6e22ecde8e4ceb0b21532"), "title" : "Avatar", "rating" : 4.7 }
+{ "_id" : ObjectId("61b6e23ecde8e4ceb0b21533"), "title" : "Dune", "rating" : 4.9 }
+> db.movies.find({_id: ObjectId("61b6e1a1cde8e4ceb0b21530")});
+{ "_id" : ObjectId("61b6e1a1cde8e4ceb0b21530"), "title" : "Aliens", "rating" : 4.5 }
+>  db.movies.find({title: 'Aliens'});
+{ "_id" : ObjectId("61b6e1a1cde8e4ceb0b21530"), "title" : "Aliens", "rating" : 4.5 }
+> db.movies.find().pretty()
+{
+	"_id" : ObjectId("61b6e1a1cde8e4ceb0b21530"),
+	"title" : "Aliens",
+	"rating" : 4.5
+}
+{
+	"_id" : ObjectId("61b6e216cde8e4ceb0b21531"),
+	"title" : "Terminator",
+	"rating" : 4.8
+}
+{
+	"_id" : ObjectId("61b6e22ecde8e4ceb0b21532"),
+	"title" : "Avatar",
+	"rating" : 4.7
+}
+{
+	"_id" : ObjectId("61b6e23ecde8e4ceb0b21533"),
+	"title" : "Dune",
+	"rating" : 4.9
+}
+> db.movies.find();
+{ "_id" : ObjectId("61b6e1a1cde8e4ceb0b21530"), "title" : "Aliens", "rating" : 4.5 }
+{ "_id" : ObjectId("61b6e216cde8e4ceb0b21531"), "title" : "Terminator", "rating" : 4.8 }
+{ "_id" : ObjectId("61b6e22ecde8e4ceb0b21532"), "title" : "Avatar", "rating" : 4.7 }
+{ "_id" : ObjectId("61b6e23ecde8e4ceb0b21533"), "title" : "Dune", "rating" : 4.9 }
+{ "_id" : ObjectId("61b6e420cde8e4ceb0b21534"), "title" : "Avatar", "rating" : 4.7 }
+> db.movies.deleteOne({_id: ObjectId("61b6e420cde8e4ceb0b21534")});
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.movies.find();
+{ "_id" : ObjectId("61b6e1a1cde8e4ceb0b21530"), "title" : "Aliens", "rating" : 4.5 }
+{ "_id" : ObjectId("61b6e216cde8e4ceb0b21531"), "title" : "Terminator", "rating" : 4.8 }
+{ "_id" : ObjectId("61b6e22ecde8e4ceb0b21532"), "title" : "Avatar", "rating" : 4.7 }
+{ "_id" : ObjectId("61b6e23ecde8e4ceb0b21533"), "title" : "Dune", "rating" : 4.9 }
+> db.movies.updateOne({title: 'Avatar'}, {$set: {rating: 4.9}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.movies.find();
+{ "_id" : ObjectId("61b6e1a1cde8e4ceb0b21530"), "title" : "Aliens", "rating" : 4.5 }
+{ "_id" : ObjectId("61b6e216cde8e4ceb0b21531"), "title" : "Terminator", "rating" : 4.8 }
+{ "_id" : ObjectId("61b6e22ecde8e4ceb0b21532"), "title" : "Avatar", "rating" : 4.9 }
+{ "_id" : ObjectId("61b6e23ecde8e4ceb0b21533"), "title" : "Dune", "rating" : 4.9 }
+> db.movies.updateOne({_id: ObjectId("61b6e22ecde8e4ceb0b21532")}, {$set: {rating: 4.5}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.movies.deleteOne({_id: ObjectId("61b6e22ecde8e4ceb0b21532")});
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.movies.find();
+{ "_id" : ObjectId("61b6e1a1cde8e4ceb0b21530"), "title" : "Aliens", "rating" : 4.5 }
+{ "_id" : ObjectId("61b6e216cde8e4ceb0b21531"), "title" : "Terminator", "rating" : 4.8 }
+{ "_id" : ObjectId("61b6e23ecde8e4ceb0b21533"), "title" : "Dune", "rating" : 4.9 }
