@@ -17,20 +17,19 @@ function App() {
           <Link to="/a8/practice">A8</Link> |
           <Link to="/a9/practice">A9</Link>
 
-          <Route path="/a6/practice" exact={true}>
+          <Route path="/a6">
             <A6/>
           </Route>
 
-          <Route path="/a7/practice" exact={true}>
+          <Route path="/a7">
             <A7/>
           </Route>
 
-          <Route path="/a8/practice" exact={true}>
+          <Route path="/a8">
             <A8/>
           </Route>
 
-
-          <Route path="/a9/practice" exact={true}>
+          <Route path="/a9">
             <A9/>
           </Route>
 
