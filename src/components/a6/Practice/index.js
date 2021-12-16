@@ -6,16 +6,23 @@ import ConditionalOutput from "./ConditionalOutput";
 import TodoList from "./Todo/TodoList";
 
 const Practice = () => {
-  return(
+  return (
       <div>
         <h1>Practice</h1>
         <TodoList/>
         <ConditionalOutput/>
         <Styles/>
         <Classes/>
-        <Link to="/a6/hello">
-          Hello
-        </Link>
+        <div className="row">
+          <Link to="/a6/hello">
+            Hello
+          </Link>
+        </div>
+        <div className="row">
+          <Link to="/a6/twitter">
+            build
+          </Link>
+        </div>
       </div>
   )
 };

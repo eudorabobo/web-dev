@@ -9,7 +9,7 @@ const ExploreComponent = () => {
             <div className="wd-input-group">
           <span className="wd-icon-inside">
             <i className="fa fa-search wd-icon-color-lightgray"
-               aria-hidden="true"></i>
+               aria-hidden="true"/>
           </span>
               <input type="text" placeholder="Search Twitter"
                      className="mb-2 wd-input-field"/>
@@ -17,7 +17,7 @@ const ExploreComponent = () => {
           </div>
 
           <div className="col-2"><Link to="#"><i
-              className="fa fa-cog fa-2x"></i></Link></div>
+              className="fa fa-cog fa-2x"/></Link></div>
         </div>
         <ul className="nav nav-tabs mt-2">
           <li className="nav nav-item">
@@ -38,7 +38,7 @@ const ExploreComponent = () => {
         </ul>
         <div className="list-group">
           <div className="list-group-item">
-            <img src="/images/starship.jpeg" alt="..."
+            <img src="../../images/starship.jpeg" alt="..."
                  className="wd-full-width-height"/>
             <h5 className="card-title">SpaceX's StarShip</h5>
           </div>

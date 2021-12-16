@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import "../ExplroeScreen/explore.css"
+import "../ExploreScreen/explore.css"
 const NavigationSidebar = (
     {
       active = 'explore'
