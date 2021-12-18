@@ -1,21 +1,24 @@
-const PROFILE_API = 'http://localhost:4000/api/profile';
+const PROFILE_API = 'http://localhost:4000/rest/profile';
 
-export const getCurrentProfile = (dispatch) =>
+export const fetchAllProfile = (dispatch) =>
     fetch(PROFILE_API)
     .then(response => response.json())
     .then(profile =>
         dispatch({
-          type: 'get-current-profile',
+          type: 'fetch-all-profile',
           profile
         })
     );
 
 export const updateCurrentProfile = (dispatch, profile) =>
-    fetch(`${PROFILE_API}`, {
-      method: 'PUT'
-    })
-    .then(response =>
+    fetch(`${PROFILE_API}/${profile._id}`, {
+      method: 'PUT',
+      body: JSON.stringify(profile),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response =>
         dispatch({
-          type: 'update-current-profile',
+          type: 'update-profile',
           profile
         }));

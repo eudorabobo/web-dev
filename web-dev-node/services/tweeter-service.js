@@ -1,63 +1,69 @@
-tweets = require('../data/tweets.json');
+const dao = require('../tweets/tweet-dao')
 
 module.exports = (app) => {
-
     const findAllTweets = (req, res) => {
-        res.json(tweets);
+        dao.findAllTweets()
+        .then(tweets => res.json(tweets));
     }
-
-    app.get('/api/tweets', findAllTweets);
 
     const postNewTweet = (req, res) => {
+        let content = req.body.content;
         const newTweet = {
-            _id: (new Date()).getTime() + '',
-            "topic": "Web Development",
-            "userName": "ReactJS",
-            "verified": false,
-            "handle": "ReactJS",
-            "time": "2h",
-            "avatar-image": "../../../images/react-blue.png",
-            "logo-image": "../../../images/react-blue.png",
-            "stats": {
-                "comments": 123,
-                "retweets": 234,
-                "likes": 345
-            },
-            ...req.body,
+            // _id: (new Date()).getTime() + '',
+            avatarIcon: "/images/elon.jpeg",
+            userName:"Elon Musk",
+            handle:"@elonmusk",
+            time:"just now",
+            image:"/images/cybertruck.png",
+            comment: 77400,
+            retweet: 40790,
+            like:5432,
+            share:"12k",
+            link:{},
+            content
         }
-        res.json(newTweet);
+        dao.createTweet(newTweet)
+        .then((insertedTweet) => res.json(insertedTweet));
+        // tweets = [newTweet, ...tweets];
+        // res.json(newTweet);
     }
-
-    app.post('/api/tweets', postNewTweet);
 
     const deleteTweet = (req, res) => {
+
         const id = req.params['id'];
-        tweets = tweets.filter(tweet => tweet._id !== id);
-        res.sendStatus(200);
+        // console.log(id);
+        // tweets = tweets.filter(tweet => tweet._id !== id);
+        dao.deleteTweet(id)
+        .then((status) => res.send(status));
+
     }
-    app.delete('/api/tweets/:id', deleteTweet);
 
     const likeTweet = (req, res) => {
         const id = req.params['id'];
-        tweets = tweets.map(tweet => {
-            if (tweet._id === id) {
-                if (tweet.liked === true) {
-                    tweet.liked = false;
-                    tweet.stats.likes--;
-                } else {
-                    tweet.liked = true;
-                    tweet.stats.likes++;
-                }
-                return tweet;
-            } else {
-                return tweet;
-            }
-        });
-        res.sendStatus(200);
+        const alreadyLiked = req.body.liked;
+        console.log(req.body);
+        // tweets = tweets.map(tweet => {
+        // if (tweet._id === id) {
+        if (alreadyLiked === true) {
+            dao.likeTweet(id)
+            .then(tweet => res.json(tweet));
+        } else {
+            // tweet.liked = true;
+            // tweet.like++;
+            dao.dislikeTweet(id)
+            .then(tweet => res.json(tweet));
+        }
+        // return tweet;
+        // }
+        // else {
+        //     return tweet;
+        // }
+        // });
+        // res.sendStatus(200);
     }
+
     app.put('/api/tweets/:id/like', likeTweet);
-
-
-
+    app.delete('/api/tweets/:id', deleteTweet);
+    app.post('/api/tweets', postNewTweet);
+    app.get('/api/tweets', findAllTweets);
 };
-

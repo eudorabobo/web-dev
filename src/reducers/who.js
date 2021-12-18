@@ -1,10 +1,7 @@
 import whoJson from './data/who.json';
 
-const initialState = {
-    who: whoJson
-}
 
-const who = (state = initialState) => {
+const who = (state = whoJson) => {
     return(state);
 };
 

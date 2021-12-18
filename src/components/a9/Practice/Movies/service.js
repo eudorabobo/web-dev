@@ -1,4 +1,4 @@
-const URL = 'http://localhost:4000/rest/movies';
+const URL = 'http://localhost:3000/rest/movies';
 
 export const findAllMovies = () =>
   fetch(URL)

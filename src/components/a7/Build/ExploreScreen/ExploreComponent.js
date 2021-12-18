@@ -38,7 +38,7 @@ const ExploreComponent = () => {
         </ul>
         <div className="list-group">
           <div className="list-group-item">
-            <img src="/images/starship.jpeg" alt="..."
+            <img src="../../../images/starship.jpeg" alt="..."
                  className="wd-full-width-height"/>
             <h5 className="card-title">SpaceX's StarShip</h5>
           </div>
